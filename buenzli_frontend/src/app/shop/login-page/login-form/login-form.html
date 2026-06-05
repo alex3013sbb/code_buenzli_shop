@@ -1,1 +1,8 @@
-<p>login-form works!</p>
+<h2>Bitte geben Sie Ihre Anmeldedaten ein</h2>
+<input id="username" type="text" [(ngModel)]="formUsername" placeholder="Benutzername" />
+<input id="password" type="text" [(ngModel)]="formPassword" placeholder="Passwort" />
+
+<input id="isAdmin" type="checkbox" [(ngModel)]="formIsAdmin" />
+<label for="isAdmin">Admin</label>
+
+<button (click)="submit()">Anmelden</button>
