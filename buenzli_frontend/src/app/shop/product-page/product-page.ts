@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import { ProductCard } from './product-card/product-card';
-import { Product } from '../../shared/product';
+import { ProductCard } from '../product-card/product-card';
+import { Product } from '../shared/product';
 
 @Component({
   selector: 'app-product-page',
