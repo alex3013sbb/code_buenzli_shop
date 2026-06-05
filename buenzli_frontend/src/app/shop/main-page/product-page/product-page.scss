@@ -1,0 +1,13 @@
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto;
+
+  .products {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+  }
+}

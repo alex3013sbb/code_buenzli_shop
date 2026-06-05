@@ -1,2 +1,21 @@
-<p>product-page works!</p>
-<app-product-card/>
+<div class="grid-container">
+  <div style="background: #eee">left-placeholder</div>
+  <div class="products">
+    <h1>Kategorie-Name</h1>
+    <label>
+      <input type="search"
+             class="form-control"
+             placeholder="nach Produkten suchen..."
+             aria-label="nach Produkten suchen"
+             title="nach Produkten suchen">
+      <!--      (input)="searchProducts()"TODO: search-->
+    </label>
+    @for (p of products(); track p.id) {
+      <app-product-card
+        [product]="p"
+      />
+    }
+  </div>
+  <div style="background: #eee">right-placeholder</div>
+</div>
+
