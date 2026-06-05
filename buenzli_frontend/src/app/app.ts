@@ -14,17 +14,17 @@ export class App {
   protected readonly isAdmin = signal(false);
 
   setUsername(newUsername: string) {
-    this.username.update((u) => newUsername);
+    this.username.update(_ => newUsername);
     console.log('set new username', this.username());
   }
 
   setPassword(newPassword: string) {
-    this.password.update((p) => newPassword);
+    this.password.update(_ => newPassword);
     console.log('set new password ', this.password());
   }
 
   setIsAdmin(newIsAdmin: boolean) {
-    this.isAdmin.update((a) => newIsAdmin);
+    this.isAdmin.update(_ => newIsAdmin);
     console.log('set isAdmin', this.isAdmin());
   }
 }
