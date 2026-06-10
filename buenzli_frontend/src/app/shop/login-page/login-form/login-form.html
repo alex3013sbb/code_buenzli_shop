@@ -1,1 +1,13 @@
-<p>login-form works!</p>
+<h3 class="mb-4">Bitte geben Sie Ihre Anmeldedaten ein</h3>
+<div class="d-flex flex-column gap-3 mx-auto text-start">
+  <input id="username" type="text" [(ngModel)]="formUsername" class="p-2" placeholder="Benutzername" />
+
+  <input id="password" type="password" [(ngModel)]="formPassword" class="p-2" placeholder="Passwort" />
+
+  <div>
+    <input id="isAdmin" type="checkbox" [(ngModel)]="formIsAdmin" />
+    <label for="isAdmin" class="ms-1">Admin</label>
+  </div>
+
+  <button (click)="submit()" class="btn btn-primary">Anmelden</button>
+</div>
