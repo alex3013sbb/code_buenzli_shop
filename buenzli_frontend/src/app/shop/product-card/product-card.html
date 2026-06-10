@@ -1,0 +1,21 @@
+<div class="product-card">
+  <div class="left">
+    <h1 style="font-size: 1.5rem">{{ product().name }}</h1>
+    <p style="font-size: 1.2rem">Preis: {{ product().price }} CHF</p>
+  </div>
+  <div class="right">
+    @if (role() == 'ADMIN') {
+      <button class="btn btn-warning">
+        Bearbeiten
+      </button>
+      <button class="btn btn-danger">
+        Löschen
+      </button>
+    }
+    @else {
+      <button class="btn btn-success">
+        zum Warenkorb hinzufügen
+      </button>
+    }
+  </div>
+</div>

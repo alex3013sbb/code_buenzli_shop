@@ -1,13 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MainPage } from './shop/main-page/main-page';
 import { LoginPage } from './shop/login-page/login-page';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginPage],
+  imports: [RouterOutlet, MainPage, LoginPage],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
+
 export class App {
   protected readonly username = signal('');
   protected readonly password = signal('');

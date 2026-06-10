@@ -1,0 +1,26 @@
+<div class="grid-container">
+  <div style="background: #eee">left-placeholder</div>
+  <div class="products">
+    <h1>Kategorie-Name</h1>
+    <div class="search-line">
+      <label>
+        <input type="search"
+               class="form-control"
+               placeholder="nach Produkten suchen..."
+               aria-label="nach Produkten suchen"
+               title="nach Produkten suchen">
+        <!--      (input)="searchProducts()"TODO: search-->
+      </label>
+      @if (role() == 'ADMIN') {
+        <button class="btn btn-success">Produkt hinzufügen</button>
+      }
+    </div>
+    @for (p of products(); track p.id) {
+      <app-product-card
+        [product]="p"
+      />
+    }
+  </div>
+  <div style="background: #eee">right-placeholder</div>
+</div>
+
