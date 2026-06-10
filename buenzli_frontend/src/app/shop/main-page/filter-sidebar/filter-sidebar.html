@@ -1,0 +1,7 @@
+<div class="btn-group-vertical buttons" role="group">
+  @for (f of categories(); track f.id) {
+    <button class="btn btn-light">
+      {{ f.name }}
+    </button>
+  }
+</div>
