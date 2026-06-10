@@ -9,6 +9,8 @@ import { Product } from '../shared/product';
   styleUrl: './product-page.scss',
 })
 export class ProductPage {
+  protected readonly role = signal<('USER' | 'ADMIN')>('USER');
+
   protected readonly products = signal<Product[]>([
     {
       id: 1,

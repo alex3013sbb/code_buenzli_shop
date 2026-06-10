@@ -4,11 +4,18 @@
     <p style="font-size: 1.2rem">Preis: {{ product().price }} CHF</p>
   </div>
   <div class="right">
-    <button class="btn btn-warning">
-      Bearbeiten
-    </button>
-    <button class="btn btn-danger">
-      Löschen
-    </button>
+    @if (role() == 'ADMIN') {
+      <button class="btn btn-warning">
+        Bearbeiten
+      </button>
+      <button class="btn btn-danger">
+        Löschen
+      </button>
+    }
+    @else {
+      <button class="btn btn-success">
+        zum Warenkorb hinzufügen
+      </button>
+    }
   </div>
 </div>

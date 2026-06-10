@@ -11,7 +11,9 @@
                title="nach Produkten suchen">
         <!--      (input)="searchProducts()"TODO: search-->
       </label>
-      <button class="btn btn-success">Produkt hinzufügen</button>
+      @if (role() == 'ADMIN') {
+        <button class="btn btn-success">Produkt hinzufügen</button>
+      }
     </div>
     @for (p of products(); track p.id) {
       <app-product-card

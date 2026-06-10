@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { Product } from '../shared/product';
 
 @Component({
@@ -8,5 +8,9 @@ import { Product } from '../shared/product';
   styleUrl: './product-card.scss',
 })
 export class ProductCard {
+
+  readonly role = signal<('USER' | 'ADMIN')>('USER');
+
   readonly product = input.required<Product>();
+
 }
