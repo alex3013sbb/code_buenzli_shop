@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { Product } from '../shared/product';
+import { Category } from '../shared/category';
 
 @Component({
   selector: 'app-product-page',
