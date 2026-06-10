@@ -1,0 +1,26 @@
+<div id="header-container">
+    <div id="header-logo">
+        <img src="images/header_logo.jpg" alt="header-logo">
+    </div>
+
+    <div id="right-tabs">
+        @if(userRole === 'ADMIN'){
+        <div class="tab-item">
+            <img src="images/user_profile.png" alt="User Profile">
+            <img src="images/user_profile.png" alt="User Profile">
+        </div>
+        } @else {
+        <div class="tab-item">
+            <img src="images/shopping_cart.png" alt="Shopping Cart">
+        </div>
+        <div class="tab-item">
+            <img src="images/user_profile.png" alt="User Profile">
+            
+        </div>
+        }
+
+        <div class="tab-item" (click)="logout()">
+            <img src="images/logout.webp" alt="Logout">
+        </div>
+    </div>
+</div>

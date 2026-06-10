@@ -1,0 +1,36 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/maps';
+
+#header-container {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    background-color: $orange;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+#right-tabs{
+    display: flex;
+
+
+    .tab-item{
+        box-sizing: border-box;
+        padding: 10px;
+        border-left: 1px solid black;
+        border-right: 1 px solid black;
+    }
+
+    img{
+        height: 40px;
+        width: auto;
+    }
+
+}
+
+img{
+        height: 60px;
+        width: auto;
+}
