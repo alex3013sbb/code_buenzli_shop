@@ -1,13 +1,32 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MainPage } from './shop/main-page/main-page';
+import { LoginPage } from './shop/login-page/login-page';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MainPage],
+  imports: [RouterOutlet, MainPage, LoginPage],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
+
 export class App {
-  protected readonly title = signal('buenzli_frontend');
+  protected readonly username = signal('');
+  protected readonly password = signal('');
+  protected readonly isAdmin = signal(false);
+
+  setUsername(newUsername: string) {
+    this.username.set(newUsername);
+    console.log('set new username', this.username());
+  }
+
+  setPassword(newPassword: string) {
+    this.password.set(newPassword);
+    console.log('set new password ', this.password());
+  }
+
+  setIsAdmin(newIsAdmin: boolean) {
+    this.isAdmin.set(newIsAdmin);
+    console.log('set isAdmin', this.isAdmin());
+  }
 }

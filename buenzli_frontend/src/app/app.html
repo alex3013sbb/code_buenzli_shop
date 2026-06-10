@@ -1,5 +1,9 @@
-
-
+<app-login-page [username]="username()"
+                [password]="password()"
+                [isAdmin]="isAdmin()"
+                (newUsername)="setUsername($event)"
+                (newPassword)="setPassword($event)"
+                (newIsAdmin)="setIsAdmin($event)" />
 
 <router-outlet />
 
