@@ -1,7 +1,10 @@
-<div class="grid-container">
-  <div style="background: #eee">left-placeholder</div>
   <div class="products">
-    <h1>Kategorie-Name</h1>
+    @if (activeCategory() === undefined) {
+      <h1>alle Produkte</h1>
+    }
+    @else {
+      <h1>{{ activeCategory() }}</h1>
+    }
     <div class="search-line">
       <label>
         <input type="search"
@@ -16,11 +19,12 @@
       }
     </div>
     @for (p of products(); track p.id) {
-      <app-product-card
-        [product]="p"
-      />
+      @if (activeCategory() == p.category || activeCategory() == undefined) {
+        <app-product-card
+          [product]="p"
+        />
+      }
     }
   </div>
-  <div style="background: #eee">right-placeholder</div>
-</div>
+
 

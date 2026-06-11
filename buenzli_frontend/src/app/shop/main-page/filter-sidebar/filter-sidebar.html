@@ -1,0 +1,8 @@
+<div class="btn-group-vertical buttons" role="group">
+  <app-category-button class="buttons" [category]="undefined"/>
+    @for (f of categories(); track f.id) {
+    <app-category-button class="buttons"
+    [category]="f"
+    />
+  }
+</div>
