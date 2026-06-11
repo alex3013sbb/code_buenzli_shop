@@ -1,0 +1,8 @@
+<div class="orders-container">
+  <h2 class="mb-4">Bestellungen</h2>
+  <div class="d-grid gap-3">
+    @for (order of orders(); track $index) {
+      <app-order-card [order]="order"></app-order-card>
+    }
+  </div>
+</div>
