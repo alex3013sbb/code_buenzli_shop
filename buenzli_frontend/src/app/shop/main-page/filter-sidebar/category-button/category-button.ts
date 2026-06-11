@@ -1,5 +1,6 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, inject } from '@angular/core';
 import { Category } from '../../../shared/category';
+import { CategoryStore } from '../../../shared/category-store';
 
 @Component({
   selector: 'app-category-button',
@@ -8,11 +9,13 @@ import { Category } from '../../../shared/category';
   styleUrl: './category-button.scss',
 })
 export class CategoryButton {
-  readonly category = input.required<Category>();
+  readonly category = input<Category | undefined>();
 
   readonly setCategory = output<Category>();
 
+  #categoryService = inject(CategoryStore);
+
   selectCategory() {
-    this.setCategory.emit(this.category());
+    this.#categoryService.setActiveCategory(this.category());
   }
 }

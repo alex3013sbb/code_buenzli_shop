@@ -1,4 +1,8 @@
 <button class="btn btn-light"
         (click)="selectCategory()">
-  {{ category().name }}
+  @if (category() === undefined) {
+    Alle Produkte
+  } @else {
+    {{ category()?.name }}
+  }
 </button>

@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { Category } from '../../shared/category';
 import { CategoryButton } from './category-button/category-button';
+import { CategoryStore } from '../../shared/category-store';
 
 @Component({
   selector: 'app-filter',
@@ -9,26 +10,13 @@ import { CategoryButton } from './category-button/category-button';
   styleUrl: './filter-sidebar.scss',
 })
 export class FilterSidebar {
-  protected readonly categories = signal<Category[]>([
-    {
-      id: 1,
-      name: 'Alle',
-    },
-    {
-      id: 2,
-      name: 'Strohhüte',
-    },
-    {
-      id: 3,
-      name: 'Krawatten',
-    },
-    {
-      id: 4,
-      name: 'Wollmützen',
-    },
-  ]);
+  #categoryService = inject(CategoryStore);
 
-  setCategory(category: Category) {
-    console.warn('reached filter-sidebar > setCategory')
+  protected readonly categories = signal<Category[]>([]);
+
+  constructor() {
+    this.#categoryService.getAll().subscribe((receivedCategories) => {
+      this.categories.set(receivedCategories);
+    })
   }
 }

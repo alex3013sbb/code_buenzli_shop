@@ -1,7 +1,8 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { Product } from '../shared/product';
 import { Category } from '../shared/category';
+import { CategoryStore } from '../shared/category-store';
 
 @Component({
   selector: 'app-product-page',
@@ -10,6 +11,11 @@ import { Category } from '../shared/category';
   styleUrl: './product-page.scss',
 })
 export class ProductPage {
+  #categoryStore = inject(CategoryStore);
+
+  protected readonly activeCategory =
+  computed(() => this.#categoryStore.getActiveCategory()?.name);
+
   protected readonly role = signal<('USER' | 'ADMIN')>('USER');
 
   protected readonly products = signal<Product[]>([
