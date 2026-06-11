@@ -1,0 +1,36 @@
+<div id="user-info-container">
+    <h5>Name: </h5>
+    <p> {{ user().name }}</p>
+
+    <h5>Email: </h5>
+    <p> {{ user().email }}</p>
+
+    <h5>Address: </h5>
+    <p> {{ user().address }}</p>
+
+    <div class="btn-container">
+        <button (click)="changeUserData()" class="btn btn-warning">Daten ändern</button>
+    </div>
+    
+    <div class="btn-container">
+        <button (click)="deleteUser()" class="btn btn-danger">Konto löschen</button>
+    </div>
+</div>
+
+@if (showEditModal()) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h5 class="modal-title">Daten bearbeiten</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-user-info-form
+          [userData]="user()"
+          (saveUser)="onSaveUser($event)"
+          (close)="closeModal()"
+        ></app-edit-user-info-form>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,22 @@
+.order-card {
+  border-radius: 1rem;
+}
+
+.order-status {
+  min-width: 150px;
+}
+
+@media (max-width: 575.98px) {
+  .order-card .card-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .order-status {
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 1rem !important;
+    padding-left: 0 !important;
+    margin-top: 0.75rem;
+  }
+}
