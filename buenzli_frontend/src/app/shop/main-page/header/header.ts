@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { userRole } from '../../shared/auth';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,21 @@ import { Component } from '@angular/core';
 })
 export class Header {
 
-  userRole: 'ADMIN' | 'CUSTOMER' = 'ADMIN';
+  readonly userRole = userRole;
+
+  constructor(private router: Router) {}
+
+  navigateMain() {
+    this.router.navigate(['/main']);
+  }
+
+  navigateUser() {
+    this.router.navigate(['/user']);
+  }
 
   logout(){
-    console.log("User logged out");
+    console.log('User logged out');
+    // optionally navigate to login
+    this.router.navigate(['/login']);
   }
 }

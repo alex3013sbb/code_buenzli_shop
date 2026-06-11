@@ -1,5 +1,7 @@
-import { Component, input, output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginForm } from './login-form/login-form';
+import { username, userRole } from '../shared/auth';
 
 @Component({
   selector: 'app-login-page',
@@ -8,23 +10,19 @@ import { LoginForm } from './login-form/login-form';
   styleUrl: './login-page.scss',
 })
 export class LoginPage {
-  readonly username = input.required<string>();
-  readonly password = input.required<string>();
-  readonly isAdmin = input.required<boolean>();
-
-  newUsername = output<string>();
-  newPassword = output<string>();
-  newIsAdmin = output<boolean>();
+  constructor(private router: Router) {}
 
   setUsername(newUsername: string) {
-    this.newUsername.emit(newUsername);
+    username.set(newUsername);
   }
 
-  setPassword(newPassword: string) {
-    this.newPassword.emit(newPassword);
+  setPassword(_: string) {
+    // password not persisted for now
   }
 
-  setIsAdmin(newIsAdmin: boolean) {
-    this.newIsAdmin.emit(newIsAdmin);
+  setIsAdmin(isAdmin: boolean) {
+    userRole.set(isAdmin ? 'ADMIN' : 'USER');
+    // navigate to main after login
+    this.router.navigate(['/main']);
   }
 }
