@@ -3,6 +3,7 @@ import { ProductCard } from '../product-card/product-card';
 import { Product } from '../shared/product';
 import { Category } from '../shared/category';
 import { CategoryStore } from '../shared/category-store';
+import { ProductStore } from '../shared/product-store';
 
 @Component({
   selector: 'app-product-page',
@@ -12,72 +13,23 @@ import { CategoryStore } from '../shared/category-store';
 })
 export class ProductPage {
   #categoryStore = inject(CategoryStore);
+  #productStore = inject(ProductStore);
 
   protected readonly activeCategory =
-  computed(() => this.#categoryStore.getActiveCategory()?.name);
+  computed(() => this.#categoryStore.getActiveCategory());
 
   protected readonly role = signal<('USER' | 'ADMIN')>('USER');
 
-  protected readonly products = signal<Product[]>([
-    {
-      id: 1,
-      name: 'Top Quality Krawatte',
-      price: 15.3,
-      category: 'Krawatte',
-    },
-    {
-      id: 2,
-      name: "Andi's Special Krawatte",
-      price: 19.95,
-      category: 'Krawatte',
-    },
-    {
-      id: 3,
-      name: 'Traditionelle Wollmütze',
-      price: 23.45,
-      category: 'Kopfbedeckung',
-    },
-    {
-      id: 4,
-      name: 'Alpkräuter-Sitzkissen',
-      price: 34.5,
-      category: 'Wohnen',
-    },
-    {
-      id: 5,
-      name: 'Gipfelstürmer Socken',
-      price: 18.9,
-      category: 'Socken',
-    },
-    {
-      id: 6,
-      name: "Andi's Hüttentee-Mischung",
-      price: 12.5,
-      category: 'Lebensmittel',
-    },
-    {
-      id: 7,
-      name: 'Gestrickter Stirnband-Klassiker',
-      price: 21.0,
-      category: 'Kopfbedeckung',
-    },
-    {
-      id: 8,
-      name: 'Käsehobel mit Arvenholzgriff',
-      price: 45.0,
-      category: 'Küchenhelfer',
-    },
-    {
-      id: 9,
-      name: 'Handgewebter Brotsack',
-      price: 16.8,
-      category: 'Küche',
-    },
-    {
-      id: 10,
-      name: 'Kuschelige Alphütten-Decke',
-      price: 89.0,
-      category: 'Wohnen',
-    },
-  ]);
+  protected readonly products = signal<Product[]>([]);
+
+
+  constructor() {
+    this.#productStore.getAll().subscribe(receivedProducts => {
+      this.products.set(receivedProducts);
+    })
+  }
+
+  log(message: string) {
+    console.log(message);
+  }
 }

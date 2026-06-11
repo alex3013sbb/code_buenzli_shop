@@ -2,7 +2,7 @@
   "categories": [
     {
       "id": 1,
-      "name": "Strohhüte"
+      "name": "Wohnen"
     },
     {
       "id": 2,
@@ -10,7 +10,78 @@
     },
     {
       "id": 3,
-      "name": "Wollmützen"
+      "name": "Kopfbedeckungen"
+    },
+    {
+      "id": 4,
+      "name": "Socken"
+    },
+    {
+      "id": 5,
+      "name": "Lebensmittel"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Top Quality Krawatte",
+      "price": 15.3,
+      "categoryId": 2
+    },
+    {
+      "id": 2,
+      "name": "Andi's Special Krawatte",
+      "price": 19.95,
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "name": "Traditionelle Wollmütze",
+      "price": 23.45,
+      "categoryId": 3
+    },
+    {
+      "id": 4,
+      "name": "Alpkräuter-Sitzkissen",
+      "price": 34.5,
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "Gipfelstürmer Socken",
+      "price": 18.9,
+      "categoryId": 4
+    },
+    {
+      "id": 6,
+      "name": "Andi's Hüttentee-Mischung",
+      "price": 12.5,
+      "categoryId": 5
+    },
+    {
+      "id": 7,
+      "name": "Gestrickter Stirnband-Klassiker",
+      "price": 21.0,
+      "categoryId": 3
+    },
+    {
+      "id": 8,
+      "name": "Käsehobel mit Arvenholzgriff",
+      "price": 45.0,
+      "categoryId": 1
+    },
+    {
+      "id": 9,
+      "name": "Handgewebter Brotsack",
+      "price": 16.8,
+      "categoryId": 1
+    },
+    {
+      "id": 10,
+      "name": "Kuschelige Alphütten-Decke",
+      "price": 89.0,
+      "categoryId": 1
     }
   ]
 }

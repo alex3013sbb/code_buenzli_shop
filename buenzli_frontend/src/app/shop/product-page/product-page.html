@@ -3,7 +3,7 @@
       <h1>alle Produkte</h1>
     }
     @else {
-      <h1>{{ activeCategory() }}</h1>
+      <h1>{{ activeCategory()?.name }}</h1>
     }
     <div class="search-line">
       <label>
@@ -18,8 +18,11 @@
         <button class="btn btn-success">Produkt hinzufügen</button>
       }
     </div>
+    {{ log('--------------------------------------------------------------') }}
     @for (p of products(); track p.id) {
-      @if (activeCategory() == p.category || activeCategory() == undefined) {
+      {{ log('activeCategory.id: ' + activeCategory()?.id) }}
+      {{ log('p.category.id: ' + p.category?.id) }}
+      @if (activeCategory()?.id == p.category?.id || activeCategory() == undefined) {
         <app-product-card
           [product]="p"
         />
