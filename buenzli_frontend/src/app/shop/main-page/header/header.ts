@@ -18,6 +18,10 @@ export class Header {
     this.router.navigate(['/main']);
   }
 
+  navigateCart() {
+    this.router.navigate(['/cart']);
+  }
+
   navigateUser() {
     this.router.navigate(['/user']);
   }
