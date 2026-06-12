@@ -1,6 +1,6 @@
 import { inject, Injectable, Service } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product } from './product';
+import { Product, ProductCreate } from './product';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,13 +11,15 @@ export class ProductStore {
   #apiUrl = 'http://localhost:3000';
 
   getAll(): Observable<Product[]> {
-    let logTest = this.#http.get<Product[]>(this.#apiUrl + '/products');
-    console.log(logTest.subscribe(products => console.log(products)));
-    return logTest;
+    return this.#http.get<Product[]>(this.#apiUrl + '/products');
   }
 
-  create(product: Product): Observable<Product> {
+  create(product: ProductCreate): Observable<Product> {
     return this.#http.post<Product>(this.#apiUrl + '/products', product);
+  }
+
+  update(product: Product): Observable<Product> {
+    return this.#http.put<Product>(this.#apiUrl + '/products/' + product.id, product);
   }
 
   search(term: string): Observable<Product[]> {

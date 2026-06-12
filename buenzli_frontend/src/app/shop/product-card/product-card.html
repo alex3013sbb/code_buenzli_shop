@@ -5,17 +5,31 @@
   </div>
   <div class="right">
     @if (role() == 'ADMIN') {
-      <button class="btn btn-warning">
+      <button class="btn btn-warning"
+              (click)="editProduct()"
+      >
         Bearbeiten
       </button>
-      <button class="btn btn-danger">
+      <button
+        class="btn btn-danger"
+        (click)="deleteProduct()"
+      >
         Löschen
       </button>
-    }
-    @else {
+    } @else {
       <button class="btn btn-success">
         zum Warenkorb hinzufügen
       </button>
     }
   </div>
 </div>
+@if (editActive()) {
+  <div class="popup-overlay">
+    <app-edit-product-popup
+      class="popup-content"
+      [product]="product()"
+      (close)="hideEditProduct()"
+    />
+  </div>
+}
+
