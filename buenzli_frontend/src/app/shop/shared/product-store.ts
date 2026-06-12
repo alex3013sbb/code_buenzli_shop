@@ -18,6 +18,10 @@ export class ProductStore {
     return this.#http.post<Product>(this.#apiUrl + '/products', product);
   }
 
+  update(product: Product): Observable<Product> {
+    return this.#http.put<Product>(this.#apiUrl + '/products/' + product.id, product);
+  }
+
   search(term: string): Observable<Product[]> {
     return this.#http.get<Product[]>(this.#apiUrl + '/products/search/' + term);
   }

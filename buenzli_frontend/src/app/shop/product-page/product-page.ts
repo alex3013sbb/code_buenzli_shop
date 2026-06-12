@@ -30,10 +30,6 @@ export class ProductPage {
     });
   }
 
-  log(message: string) {
-    console.log(message);
-  }
-
   showPopup() {
     this.popupActive.set(true);
   }

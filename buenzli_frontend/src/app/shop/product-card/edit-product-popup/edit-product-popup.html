@@ -1,0 +1,52 @@
+<div class="bg-light p-4">
+  <h5>
+    Produkt bearbeiten
+  </h5>
+  <form class="product-form" [formGroup]="productForm" (ngSubmit)="save()">
+    <div class="form-group mb-3">
+      <label for="name" class="form-label">Name <i>(bisher: {{ product().name }})</i></label>
+      <input
+        class="form-control"
+        id="name"
+        formControlName="name"
+        [class.is-invalid]="productForm.controls.name.touched && productForm.controls.name.invalid"
+        [class.is-valid]="productForm.controls.name.touched && productForm.controls.name.valid"
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="price" class="form-label">Preis <i>(bisher: {{ product().price }})</i></label>
+      <input
+        class="form-control"
+        id="price"
+        formControlName="price"
+        [class.is-invalid]="productForm.controls.price.touched && productForm.controls.price.invalid"
+        [class.is-valid]="productForm.controls.price.touched && productForm.controls.price.valid"
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="category" class="form-label">Kategorie <i>(bisher: {{ product().category }})</i></label>
+      <input
+        class="form-control"
+        id="category"
+        formControlName="category"
+        [class.is-invalid]="productForm.controls.category.touched && productForm.controls.category.invalid"
+        [class.is-valid]="productForm.controls.category.touched && productForm.controls.category.valid"
+      />
+    </div>
+    <button
+      class="btn btn-success"
+      type="submit"
+    >
+      Speichern
+    </button>
+    <button
+      class="btn btn-danger mx-2"
+      (click)="cancel()"
+      type="button"
+    >
+      Abbrechen
+    </button>
+  </form>
+  <div class="d-flex gap-2">
+  </div>
+</div>

@@ -19,6 +19,10 @@
     {
       "id": "5",
       "name": "Lebensmittel"
+    },
+    {
+      "id": "6",
+      "name": "Schals"
     }
   ],
   "products": [
@@ -26,73 +30,67 @@
       "id": "1",
       "name": "Top Quality Krawatte",
       "price": 15.3,
-      "categoryId": 2
+      "category": "Krawatten"
     },
     {
       "id": "2",
       "name": "Andi's Special Krawatte",
       "price": 19.95,
-      "categoryId": 2
+      "category": "Krawatten"
     },
     {
       "id": "3",
       "name": "Traditionelle Wollmütze",
       "price": 23.45,
-      "categoryId": 3
+      "category": "Kopfbedeckungen"
     },
     {
       "id": "4",
       "name": "Alpkräuter-Sitzkissen",
       "price": 34.5,
-      "categoryId": 1
+      "category": "Wohnen"
     },
     {
       "id": "5",
       "name": "Gipfelstürmer Socken",
       "price": 18.9,
-      "categoryId": 4
+      "category": "Socken"
     },
     {
       "id": "6",
       "name": "Andi's Hüttentee-Mischung",
       "price": 12.5,
-      "categoryId": 5
+      "category": "Lebensmittel"
     },
     {
       "id": "7",
       "name": "Gestrickter Stirnband-Klassiker",
       "price": 21,
-      "categoryId": 3
+      "category": "Kopfbedeckungen"
     },
     {
       "id": "8",
       "name": "Käsehobel mit Arvenholzgriff",
       "price": 45,
-      "categoryId": 1
+      "category": "Wohnen"
     },
     {
       "id": "9",
       "name": "Handgewebter Brotsack",
       "price": 16.8,
-      "categoryId": 1
+      "category": "Wohnen"
     },
     {
       "id": "10",
       "name": "Kuschelige Alphütten-Decke",
       "price": 89,
-      "categoryId": 1
+      "category": "Wohnen"
     },
     {
-      "name": "asdf",
-      "price": 0,
-      "category": "a",
-      "id": "Vwb2kpnQ1JM"
-    },
-    {
-      "name": "asdf",
-      "price": 0,
-      "category": "sdafe",
-      "id": "Y5H4dqWHLbU"
+      "id": "11",
+      "name": "Anti-Krankheits-Schal",
+      "price": 49,
+      "category": "Schals"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
