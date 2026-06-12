@@ -9,7 +9,7 @@ import { Product } from '../shared/product';
 })
 export class ProductCard {
 
-  readonly role = signal<('USER' | 'ADMIN')>('USER');
+  readonly role = signal<('USER' | 'ADMIN')>('ADMIN');
 
   readonly product = input.required<Product>();
 

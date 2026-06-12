@@ -2,7 +2,7 @@
   @if (activeCategory() === undefined) {
     <h1>alle Produkte</h1>
   } @else {
-    <h1>{{ activeCategory() }}</h1>
+    <h1>{{ activeCategory()?.name }}</h1>
   }
   <div class="search-line">
     <label>
@@ -18,16 +18,19 @@
     }
   </div>
   @for (p of products(); track p.id) {
-    @if (activeCategory() == p.category || activeCategory() == undefined) {
+<!--    @if (activeCategory() == p.category || activeCategory() == undefined) {-->
       <app-product-card
         [product]="p"
       />
-    }
+<!--    }-->
   }
 </div>
 @if (popupActive()) {
   <div class="popup-overlay">
-    <app-add-product-popup class="popup-content" />
+    <app-add-product-popup
+      class="popup-content"
+      (close)="hidePopup()"
+    />
   </div>
 }
 
