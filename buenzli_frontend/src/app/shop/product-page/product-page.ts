@@ -3,20 +3,23 @@ import { ProductCard } from '../product-card/product-card';
 import { Product } from '../shared/product';
 import { Category } from '../shared/category';
 import { CategoryStore } from '../shared/category-store';
+import { Router } from '@angular/router';
+import { AddProductPopup } from './add-product-popup/add-product-popup';
 
 @Component({
   selector: 'app-product-page',
-  imports: [ProductCard],
+  imports: [ProductCard, AddProductPopup],
   templateUrl: './product-page.html',
   styleUrl: './product-page.scss',
 })
 export class ProductPage {
   #categoryStore = inject(CategoryStore);
 
-  protected readonly activeCategory =
-  computed(() => this.#categoryStore.getActiveCategory()?.name);
+  protected readonly activeCategory = computed(() => this.#categoryStore.getActiveCategory()?.name);
 
-  protected readonly role = signal<('USER' | 'ADMIN')>('USER');
+  protected readonly role = signal<'USER' | 'ADMIN'>('ADMIN');
+
+  protected popupActive = signal(false);
 
   protected readonly products = signal<Product[]>([
     {
@@ -80,4 +83,8 @@ export class ProductPage {
       category: 'Wohnen',
     },
   ]);
+
+  showPopup() {
+    this.popupActive.set(true);
+  }
 }

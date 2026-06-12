@@ -7,3 +7,5 @@ export interface Product {
   category: string;
   // category: Category;
 }
+
+export type ProductCreate = Omit<Product, 'id'>
