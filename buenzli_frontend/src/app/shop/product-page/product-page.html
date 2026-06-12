@@ -1,33 +1,34 @@
-  <div class="products">
-    @if (activeCategory() === undefined) {
-      <h1>alle Produkte</h1>
-    }
-    @else {
-      <h1>{{ activeCategory()?.name }}</h1>
-    }
-    <div class="search-line">
-      <label>
-        <input type="search"
-               class="form-control"
-               placeholder="nach Produkten suchen..."
-               aria-label="nach Produkten suchen"
-               title="nach Produkten suchen">
-        <!--      (input)="searchProducts()"TODO: search-->
-      </label>
-      @if (role() == 'ADMIN') {
-        <button class="btn btn-success">Produkt hinzufügen</button>
-      }
-    </div>
-    {{ log('--------------------------------------------------------------') }}
-    @for (p of products(); track p.id) {
-      {{ log('activeCategory.id: ' + activeCategory()?.id) }}
-      {{ log('p.category.id: ' + p.category?.id) }}
-      @if (activeCategory()?.id == p.category?.id || activeCategory() == undefined) {
-        <app-product-card
-          [product]="p"
-        />
-      }
+<div class="products">
+  @if (activeCategory() === undefined) {
+    <h1>alle Produkte</h1>
+  } @else {
+    <h1>{{ activeCategory() }}</h1>
+  }
+  <div class="search-line">
+    <label>
+      <input type="search"
+             class="form-control"
+             placeholder="nach Produkten suchen..."
+             aria-label="nach Produkten suchen"
+             title="nach Produkten suchen">
+      <!--      (input)="searchProducts()"TODO: search-->
+    </label>
+    @if (role() == 'ADMIN') {
+      <button class="btn btn-success" (click)="showPopup()">Produkt hinzufügen</button>
     }
   </div>
+  @for (p of products(); track p.id) {
+    @if (activeCategory() == p.category || activeCategory() == undefined) {
+      <app-product-card
+        [product]="p"
+      />
+    }
+  }
+</div>
+@if (popupActive()) {
+  <div class="popup-overlay">
+    <app-add-product-popup class="popup-content" />
+  </div>
+}
 
 
