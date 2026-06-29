@@ -11,8 +11,8 @@ import { Header } from '../main-page/header/header';
 })
 export class CartPage {
   protected products = signal<Product[]>([
-    { id: 1, name: 'Andi SBB Hut', price: 10, category: 'hut' },
-    { id: 2, name: 'Andi Haushut', price: 20, category: 'hut' },
+    { id: 1, name: 'Andi\'s SBB Hut', price: 10, category: 'Hut' },
+    { id: 2, name: 'Andi\'s Haushut', price: 20, category: 'Hut' },
   ]);
 
   protected cartItems = signal<OrderedProductInfo[]>([

@@ -1,10 +1,10 @@
 <div class="products">
   @if (activeCategory() === undefined) {
-    <h1>alle Produkte</h1>
+    <h1>Alle Produkte</h1>
   } @else {
     <h1>{{ activeCategory()?.name }}</h1>
   }
-  <div class="search-line">
+  <div [class.search-line]="role()=='ADMIN'" [class.only-search]="role()=='USER'">
     <label>
       <input type="search"
              class="form-control"

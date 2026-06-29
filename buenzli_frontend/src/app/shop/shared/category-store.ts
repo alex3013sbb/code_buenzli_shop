@@ -14,11 +14,9 @@ export class CategoryStore {
 
   setActiveCategory(category: Category | undefined): void {
     this.activeCategory.set(category);
-    console.log('setActive ' + this.activeCategory()?.name);
   }
 
   getActiveCategory(): Category | undefined {
-    console.log('getActive ' + this.activeCategory()?.name);
     return this.activeCategory();
   }
 

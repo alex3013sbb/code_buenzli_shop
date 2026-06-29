@@ -2,6 +2,7 @@ import { Component, inject, input, signal } from '@angular/core';
 import { Product } from '../shared/product';
 import { EditProductPopup } from './edit-product-popup/edit-product-popup';
 import { ProductStore } from '../shared/product-store';
+import { userRole } from '../shared/auth';
 
 @Component({
   selector: 'app-product-card',
@@ -10,7 +11,8 @@ import { ProductStore } from '../shared/product-store';
   styleUrl: './product-card.scss',
 })
 export class ProductCard {
-  readonly role = signal<'USER' | 'ADMIN'>('ADMIN');
+  readonly role = userRole;
+  readonly roleOld = signal<'USER' | 'ADMIN'>('USER');
 
   readonly product = input.required<Product>();
 
@@ -28,8 +30,12 @@ export class ProductCard {
   }
 
   deleteProduct() {
-    if (confirm (`Bist du sicher, dass du das Produkt '${this.product().name}' löschen ` +
-          `willst? Diese Aktion kann nicht rückgängig gemacht werden!`,)) {
+    if (
+      confirm(
+        `Bist du sicher, dass du das Produkt '${this.product().name}' löschen ` +
+          `willst? Diese Aktion kann nicht rückgängig gemacht werden!`,
+      )
+    ) {
       this.#productService.delete(this.product().id).subscribe();
     }
     window.location.reload();
