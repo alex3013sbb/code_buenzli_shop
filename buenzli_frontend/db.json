@@ -93,5 +93,24 @@
       "category": "Schals"
     }
   ],
+  "cart": [
+    {
+      "products": [
+        {
+          "id": "1",
+          "name": "Top Quality Krawatte",
+          "price": 15.3,
+          "category": "Krawatten"
+        },
+        {
+          "id": "1",
+          "name": "Top Quality Krawatte",
+          "price": 15.3,
+          "category": "Krawatten"
+        }
+      ],
+      "id": "uWJSwUj7X6Y"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

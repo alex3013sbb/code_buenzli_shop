@@ -3,6 +3,7 @@ import { Product } from '../shared/product';
 import { EditProductPopup } from './edit-product-popup/edit-product-popup';
 import { ProductStore } from '../shared/product-store';
 import { userRole } from '../shared/auth';
+import { CartService } from '../shared/cart-service';
 
 @Component({
   selector: 'app-product-card',
@@ -12,13 +13,13 @@ import { userRole } from '../shared/auth';
 })
 export class ProductCard {
   readonly role = userRole;
-  readonly roleOld = signal<'USER' | 'ADMIN'>('USER');
 
   readonly product = input.required<Product>();
 
   readonly editActive = signal(false);
 
   #productService = inject(ProductStore);
+  #cartService = inject(CartService);
 
   editProduct() {
     this.editActive.set(true);
@@ -39,5 +40,9 @@ export class ProductCard {
       this.#productService.delete(this.product().id).subscribe();
     }
     window.location.reload();
+  }
+
+  addToCart() {
+    this.#cartService.addProduct(this.product());
   }
 }
