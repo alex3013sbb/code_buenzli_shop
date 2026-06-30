@@ -95,21 +95,105 @@
   ],
   "cart": [
     {
-      "products": [
-        {
-          "id": "1",
-          "name": "Top Quality Krawatte",
-          "price": 15.3,
-          "category": "Krawatten"
-        },
-        {
-          "id": "1",
-          "name": "Top Quality Krawatte",
-          "price": 15.3,
-          "category": "Krawatten"
-        }
-      ],
-      "id": "uWJSwUj7X6Y"
+      "products": [],
+      "id": "tXgIUEQ8AHw"
+    },
+    {
+      "products": [],
+      "id": "gdNQ0CqPyKA"
+    }
+  ],
+  "orderedProductInfo": [
+    {
+      "product_id": "1",
+      "quantity": 1,
+      "priceAtMoment": 15.3,
+      "order_id": "gdNQ0CqPyKA",
+      "id": "7gBwICWGxJw"
+    },
+    {
+      "product_id": "2",
+      "quantity": 1,
+      "priceAtMoment": 19.95,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "49pV3a-izVQ"
+    },
+    {
+      "product_id": "1",
+      "quantity": 1,
+      "priceAtMoment": 15.3,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "tnQ_nIn0tq4"
+    },
+    {
+      "product_id": "2",
+      "quantity": 1,
+      "priceAtMoment": 19.95,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "5INwNiARJeQ"
+    },
+    {
+      "product_id": "3",
+      "quantity": 1,
+      "priceAtMoment": 23.45,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "4dwwHFJoO_8"
+    },
+    {
+      "product_id": "4",
+      "quantity": 1,
+      "priceAtMoment": 34.5,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "KAU5NqdjSCA"
+    },
+    {
+      "product_id": "5",
+      "quantity": 1,
+      "priceAtMoment": 18.9,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "bDfeFcYOXUM"
+    },
+    {
+      "product_id": "6",
+      "quantity": 1,
+      "priceAtMoment": 12.5,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "CpEVJ61QM-c"
+    },
+    {
+      "product_id": "7",
+      "quantity": 1,
+      "priceAtMoment": 21,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "ZMhc5_SR57o"
+    },
+    {
+      "product_id": "8",
+      "quantity": 1,
+      "priceAtMoment": 45,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "7lnReJSzjjM"
+    },
+    {
+      "product_id": "9",
+      "quantity": 1,
+      "priceAtMoment": 16.8,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "48BoIhNg0nI"
+    },
+    {
+      "product_id": "10",
+      "quantity": 1,
+      "priceAtMoment": 89,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "WnbYILXL5VE"
+    },
+    {
+      "product_id": "11",
+      "quantity": 1,
+      "priceAtMoment": 49,
+      "order_id": "tXgIUEQ8AHw",
+      "id": "jMr-JOXWM5E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

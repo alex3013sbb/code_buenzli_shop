@@ -1,7 +1,11 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Product } from '../shared/product';
 import { OrderedProductInfo } from '../shared/orderedProductInfo';
 import { Header } from '../main-page/header/header';
+import { CartStore } from '../shared/cart-store';
+import { OrderedProductInfoStore } from '../shared/ordered-product-info-store';
+import { ProductStore } from '../shared/product-store';
+import { CartService } from '../shared/cart-service';
 
 @Component({
   selector: 'app-cart-page',
@@ -10,28 +14,13 @@ import { Header } from '../main-page/header/header';
   styleUrl: './cart-page.scss',
 })
 export class CartPage {
-  protected products = signal<Product[]>([
-    { id: 1, name: 'Andi\'s SBB Hut', price: 10, category: 'Hut' },
-    { id: 2, name: 'Andi\'s Haushut', price: 20, category: 'Hut' },
-  ]);
 
-  protected cartItems = signal<OrderedProductInfo[]>([
-    { id: 1, product_id: 1, quantity: 2, priceAtMoment: 10, order_id: 0 },
-    { id: 2, product_id: 2, quantity: 1, priceAtMoment: 20, order_id: 0 },
-  ]);
+  #cartService = inject(CartService);
 
-  protected readonly cartProducts = computed(() =>
-    this.cartItems().map((item) => ({
-      ...item,
-      product: this.products().find((p) => p.id === item.product_id),
-    })),
-  );
-
-  protected readonly total = computed(() =>
-    this.cartItems().reduce((sum, item) => sum + item.quantity * item.priceAtMoment, 0),
-  );
+  protected readonly cartProducts = this.#cartService.cartProducts;
+  protected readonly total = this.#cartService.total;
 
   placeOrder() {
-    console.log('Place order', this.cartItems(), 'total', this.total());
+    console.log('Place order', this.#cartService.cartItems(), 'total', this.#cartService.total());
   }
 }

@@ -44,5 +44,6 @@ export class ProductCard {
 
   addToCart() {
     this.#cartService.addProduct(this.product());
+    window.location.reload();
   }
 }

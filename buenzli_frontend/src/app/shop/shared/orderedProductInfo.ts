@@ -5,3 +5,5 @@ export interface OrderedProductInfo {
     priceAtMoment: number;
     order_id: number;
 }
+
+export type OrderedProductInfoCreate = Omit<OrderedProductInfo, 'id'>
