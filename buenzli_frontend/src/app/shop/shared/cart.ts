@@ -1,5 +1,5 @@
 import { Product } from './product';
-import { OrderedProductInfo } from './orderedProductInfo';
+import { CartItem } from './cartItem';
 
 export interface Cart {
   id: number;

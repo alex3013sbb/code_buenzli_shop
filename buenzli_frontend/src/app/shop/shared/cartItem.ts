@@ -1,4 +1,4 @@
-export interface OrderedProductInfo {
+export interface CartItem {
     id: number;
     product_id: number;
     quantity: number;
@@ -6,4 +6,4 @@ export interface OrderedProductInfo {
     order_id: number;
 }
 
-export type OrderedProductInfoCreate = Omit<OrderedProductInfo, 'id'>
+export type OrderedProductInfoCreate = Omit<CartItem, 'id'>

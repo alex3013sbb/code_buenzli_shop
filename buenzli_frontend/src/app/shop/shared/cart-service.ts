@@ -2,21 +2,21 @@ import { computed, inject, Service, signal } from '@angular/core';
 import { CartStore } from './cart-store';
 import { Cart, CartCreate } from './cart';
 import { Product } from './product';
-import { OrderedProductInfoStore } from './ordered-product-info-store';
-import { OrderedProductInfo } from './orderedProductInfo';
+import { CartItemStore } from './cart-item-store';
+import { CartItem } from './cartItem';
 import { ProductStore } from './product-store';
 
 @Service()
 export class CartService {
   #cartStore = inject(CartStore);
-  #orderedProductInfoStore = inject(OrderedProductInfoStore);
+  #cartItemStore = inject(CartItemStore);
   #productStore = inject(ProductStore);
 
   #cart: Cart | undefined;
 
   readonly products = signal<Product[]>([]);
 
-  readonly cartItems = signal<OrderedProductInfo[]>([]);
+  readonly cartItems = signal<CartItem[]>([]);
 
   readonly cartProducts = computed(() =>
     this.cartItems().map((item) => ({
@@ -46,7 +46,7 @@ export class CartService {
       this.products.set(items);
     });
 
-    this.#orderedProductInfoStore.getAll().subscribe((items) => {
+    this.#cartItemStore.getAll().subscribe((items) => {
       this.cartItems.set(items);
     });
   }
@@ -57,7 +57,31 @@ export class CartService {
       return;
     }
 
-    this.#orderedProductInfoStore
+    let item = this.cartItems().find((i) => {
+      console.log(product.name + ' product-id: ' + product.id);
+      console.log('item-product_id: ' + i.product_id);
+      return i.product_id === product.id;
+    });
+    console.log(item);
+
+    if (item) {
+      // object -> true | undefined -> false
+      this.#cartItemStore
+        .update({
+          ...item,
+          quantity: item.quantity + 1,
+        })
+        .subscribe({
+          next: () => {
+            console.log('updated item.quantity');
+          },
+        });
+
+      console.log(this.cartItems());
+      return;
+    }
+
+    this.#cartItemStore
       .create({
         product_id: product.id,
         quantity: 1,
@@ -65,7 +89,9 @@ export class CartService {
         order_id: this.#cart.id,
       })
       .subscribe({
-        next: () => console.log('added to cart')
+        next: () => {
+          console.log('added to cart');
+        },
       });
   }
 }
