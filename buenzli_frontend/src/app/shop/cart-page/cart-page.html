@@ -7,15 +7,30 @@
     <div class="cart-items mb-4">
       @for (item of cartProducts(); track $index) {
         <div class="cart-item d-flex justify-content-between align-items-center py-3 border-bottom">
-          <div>
-            <div class="fw-semibold mb-1">{{ item.product?.name ?? 'Unknown product' }}</div>
-            <div class="text-muted small">Anzahl: {{ item.quantity }}</div>
+          <div class="left-side">
+            <div>
+              <div class="fw-semibold mb-1">{{ item.product?.name ?? 'Unknown product' }}</div>
+              <div class="text-muted small">Anzahl: {{ item.quantity }}</div>
+            </div>
           </div>
-          <div class="text-end">
-            <div>{{ item.priceAtMoment }} CHF</div>
-            <div class="text-muted small">je Stück</div>
+          <div class="right-side">
+            <div class="text-end">
+              <div>{{ item.priceAtMoment }} CHF</div>
+              <div class="text-muted small">je Stück</div>
+            </div>
+            <button class="btn btn-danger" (click)="down(item)">
+              -
+            </button>
+            <button class="btn btn-success" (click)="up(item)">
+              +
+            </button>
           </div>
         </div>
+      }
+      @if (cartProducts().length == 0) {
+        <span style="font-style: italic">
+          Es gibt noch keine Produkte im Warenkorb
+        </span>
       }
     </div>
 
@@ -25,7 +40,11 @@
     </div>
 
     <div class="text-end mt-4">
-      <button class="btn btn-primary" (click)="placeOrder()">Bestellen</button>
+      <button class="btn btn-primary"
+              (click)="placeOrder()"
+            [disabled]="cartProducts().length == 0"
+      >
+        Bestellen</button>
     </div>
   </div>
 </div>

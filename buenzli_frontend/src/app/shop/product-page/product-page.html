@@ -24,6 +24,9 @@
       />
 <!--    }-->
   }
+  @if (products().length == 0) {
+    <span style="font-style: italic">Keine Produkte gefunden</span>
+  }
 </div>
 @if (popupActive()) {
   <div class="popup-overlay">

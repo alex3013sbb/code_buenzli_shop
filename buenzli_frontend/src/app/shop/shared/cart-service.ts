@@ -94,4 +94,39 @@ export class CartService {
         },
       });
   }
+
+  addQuantity(item: CartItem, difference: number) {
+    if (item.quantity + difference < 1) {
+      this.removeProduct(item);
+      return;
+    }
+
+    this.#cartItemStore
+      .update({
+        ...item,
+        quantity: item.quantity + difference,
+      })
+      .subscribe({
+        next: () => {
+          console.log('quantity changed by: ' + difference);
+        },
+      });
+  }
+
+  removeProduct(item: CartItem) {
+    let product = this.products().find((p) => p.id === item.product_id);
+    if (!confirm(`Willst du das Produkt '${product?.name}' aus dem Warenkorb löschen?`)) {
+      return;
+    }
+
+    if (!product) {
+      console.error('Product not found!');
+    }
+
+    this.#cartItemStore.delete(item.id).subscribe({
+      next: () => {
+        console.log('removed item');
+      },
+    });
+  }
 }

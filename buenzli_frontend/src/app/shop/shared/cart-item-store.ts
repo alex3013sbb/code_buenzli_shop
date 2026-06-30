@@ -1,7 +1,7 @@
 import { inject, Service } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CartItem, OrderedProductInfoCreate } from './cartItem';
+import { CartItem, CartItemCreate } from './cartItem';
 
 @Service()
 export class CartItemStore {
@@ -9,20 +9,24 @@ export class CartItemStore {
   #apiUrl = 'http://localhost:3000';
 
   getAll(): Observable<CartItem[]> {
-    return this.#http.get<CartItem[]>(this.#apiUrl + '/orderedProductInfo');
+    return this.#http.get<CartItem[]>(this.#apiUrl + '/cart-item');
   }
 
-  create(orderedProductInfo: OrderedProductInfoCreate): Observable<CartItem> {
+  create(cartItem: CartItemCreate): Observable<CartItem> {
     return this.#http.post<CartItem>(
-      this.#apiUrl + '/orderedProductInfo',
-      orderedProductInfo,
+      this.#apiUrl + '/cart-item',
+      cartItem,
     );
   }
 
-  update(orderedProductInfo: CartItem): Observable<CartItem> {
+  update(cartItem: CartItem): Observable<CartItem> {
     return this.#http.put<CartItem>(
-      this.#apiUrl + '/orderedProductInfo/' + orderedProductInfo.id,
-      orderedProductInfo,
+      this.#apiUrl + '/cart-item/' + cartItem.id,
+      cartItem,
     );
+  }
+
+  delete(id: number): Observable<unknown> {
+    return this.#http.delete<unknown>(this.#apiUrl + '/cart-item/' + id);
   }
 }

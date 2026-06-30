@@ -103,8 +103,46 @@
       "id": "kakdfCk3cK0"
     }
   ],
-  "orderedProductInfo": [
-
+  "cart-item": [
+    {
+      "product_id": "11",
+      "quantity": 65,
+      "priceAtMoment": 49,
+      "order_id": "vIIoAa1tHTI",
+      "id": "wAvTTzBwPBU",
+      "product": {
+        "id": "11",
+        "name": "Anti-Krankheits-Schal",
+        "price": 49,
+        "category": "Schals"
+      }
+    },
+    {
+      "product_id": "10",
+      "quantity": 61,
+      "priceAtMoment": 89,
+      "order_id": "vIIoAa1tHTI",
+      "id": "0nUyx-AlGcQ",
+      "product": {
+        "id": "10",
+        "name": "Kuschelige Alphütten-Decke",
+        "price": 89,
+        "category": "Wohnen"
+      }
+    },
+    {
+      "product_id": "7",
+      "quantity": 66,
+      "priceAtMoment": 21,
+      "order_id": "vIIoAa1tHTI",
+      "id": "8xOkFnd7QFI",
+      "product": {
+        "id": "7",
+        "name": "Gestrickter Stirnband-Klassiker",
+        "price": 21,
+        "category": "Kopfbedeckungen"
+      }
+    }
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

@@ -6,4 +6,4 @@ export interface CartItem {
     order_id: number;
 }
 
-export type OrderedProductInfoCreate = Omit<CartItem, 'id'>
+export type CartItemCreate = Omit<CartItem, 'id'>
