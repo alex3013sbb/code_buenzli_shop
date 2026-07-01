@@ -6,6 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   box-shadow: 1px 1px 3px 0;
+  gap: 10px;
 
   .left {
   }
@@ -16,6 +17,10 @@
     justify-content: center;
     gap: 5px;
   }
+}
+
+.add-cart {
+  width: 150px;
 }
 
 .popup-overlay {

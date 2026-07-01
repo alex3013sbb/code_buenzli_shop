@@ -137,5 +137,11 @@
     }
   ],
   "cart-item": [],
+  "role": [
+    {
+      "role": "ADMIN",
+      "id": "1"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

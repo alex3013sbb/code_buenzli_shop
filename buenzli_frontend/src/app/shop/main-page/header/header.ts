@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { userRole } from '../../shared/auth';
+import { AuthStore, userRole } from '../../shared/auth';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +11,8 @@ import { userRole } from '../../shared/auth';
 export class Header {
 
   readonly userRole = userRole;
+
+  #auth = inject(AuthStore); // check admin/user
 
   constructor(private router: Router) {}
 
