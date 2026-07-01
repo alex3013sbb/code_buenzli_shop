@@ -23,13 +23,21 @@
     {
       "id": "6",
       "name": "Schals"
+    },
+    {
+      "name": "Tests",
+      "id": "qj81jyLi6EA"
+    },
+    {
+      "name": "andere Tests",
+      "id": "MMZw4coz2AM"
     }
   ],
   "products": [
     {
       "id": "1",
       "name": "Top Quality Krawatte",
-      "price": 15.3,
+      "price": "15.3",
       "category": "Krawatten"
     },
     {
@@ -91,6 +99,24 @@
       "name": "Anti-Krankheits-Schal",
       "price": 49,
       "category": "Schals"
+    },
+    {
+      "name": "Testprodukt",
+      "price": "12.3",
+      "category": {
+        "name": "andere Tests",
+        "id": "MMZw4coz2AM"
+      },
+      "id": "zADnj8UIfec"
+    },
+    {
+      "name": "weiterer Test",
+      "price": "11",
+      "category": {
+        "name": "andere Tests",
+        "id": "MMZw4coz2AM"
+      },
+      "id": "eiKKmAuXiLs"
     }
   ],
   "cart": [
@@ -103,6 +129,14 @@
       "id": "kakdfCk3cK0"
     }
   ],
-  "cart-item": [],
+  "cart-item": [
+    {
+      "product_id": "1",
+      "quantity": 2,
+      "priceAtMoment": 15.3,
+      "order_id": "vIIoAa1tHTI",
+      "id": "RVS7XXgLlzI"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

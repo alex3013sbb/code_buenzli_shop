@@ -1,5 +1,5 @@
 import { inject, Injectable, Service, signal } from '@angular/core';
-import { Category } from './category';
+import { Category, CategoryCreate } from './category';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -24,7 +24,7 @@ export class CategoryStore {
     return this.#http.get<Category[]>(this.#apiUrl + '/categories');
   }
 
-  create(category: Category): Observable<Category> {
+  create(category: CategoryCreate): Observable<Category> {
     return this.#http.post<Category>(this.#apiUrl + '/categories', category);
   }
 

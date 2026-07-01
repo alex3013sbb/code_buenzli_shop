@@ -18,11 +18,11 @@
     }
   </div>
   @for (p of products(); track p.id) {
-<!--    @if (activeCategory() == p.category || activeCategory() == undefined) {-->
+    @if (activeCategory() == p?.category || activeCategory() == undefined) {
       <app-product-card
         [product]="p"
       />
-<!--    }-->
+    }
   }
   @if (products().length == 0) {
     <span style="font-style: italic">Keine Produkte gefunden</span>

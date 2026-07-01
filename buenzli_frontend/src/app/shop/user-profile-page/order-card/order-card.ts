@@ -13,8 +13,8 @@ export class OrderCard {
   readonly order = input.required<Order>();
 
   protected products = signal<Product[]>([
-    { id: 1, name: 'Andi\'s SBB Hut', price: 10, category: 'hut' },
-    { id: 2, name: 'Andi\'s Haushut', price: 20, category: 'hut' },
+    // { id: 1, name: 'Andi\'s SBB Hut', price: 10, category: 'hut' },
+    // { id: 2, name: 'Andi\'s Haushut', price: 20, category: 'hut' },
   ]);
 
   protected readonly currentProduct = computed(() => this.order().orderedProducts[0]);

@@ -2,6 +2,8 @@ import { Component, inject, input, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product, ProductCreate } from '../../shared/product';
 import { ProductStore } from '../../shared/product-store';
+import { CategoryStore } from '../../shared/category-store';
+import { Category } from '../../shared/category';
 
 @Component({
   selector: 'app-edit-product-popup',
@@ -16,6 +18,7 @@ export class EditProductPopup {
   readonly product = input.required<Product>();
 
   #productStore = inject(ProductStore);
+  #categoryStore = inject(CategoryStore);
 
   protected readonly productForm = new FormGroup({
     name: new FormControl('', {
@@ -43,13 +46,31 @@ export class EditProductPopup {
 
     this.product().name = formValue.name;
     this.product().price = formValue.price;
-    this.product().category = formValue.category;
+
+    this.#categoryStore.getAll().subscribe((categories) => {
+      let c = categories.find(c => c.name === formValue.category);
+      if (c) {
+        this.#updateProduct(c);
+        console.info('found suitable category');
+        return;
+      }
+      console.info('category not found')
+      this.#categoryStore.create({name: formValue.category}).subscribe((c) => {
+        this.#updateProduct(c);
+        console.info('updated category' + c.name);
+        console.info(c);
+      })
+    })
+  }
+
+  #updateProduct(category: Category) {
+    this.product().category = category;
 
     this.#productStore.update(this.product()).subscribe({
       next: () => {
         this.close.emit();
-      },
-    });
+      }
+    })
   }
 
   cancel() {
