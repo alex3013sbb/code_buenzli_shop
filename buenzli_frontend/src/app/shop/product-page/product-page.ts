@@ -21,8 +21,6 @@ export class ProductPage {
 
   protected readonly activeCategory = computed(() => this.#categoryStore.getActiveCategory());
 
-  protected readonly roleOld = signal<'USER' | 'ADMIN'>('ADMIN');
-
   protected popupActive = signal(false);
 
   protected readonly products = signal<Product[]>([]);

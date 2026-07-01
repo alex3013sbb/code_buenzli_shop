@@ -17,8 +17,11 @@
       <button class="btn btn-success" (click)="showPopup()">Produkt hinzufügen</button>
     }
   </div>
+<!--  {{ activeCategory() }}<br/>-->
+<!--  {{ activeCategory()?.name }}-->
   @for (p of products(); track p.id) {
-    @if (activeCategory() == p?.category || activeCategory() == undefined) {
+    @if (activeCategory()?.name == p?.category?.name || activeCategory() == undefined) {
+<!--      {{ p?.category?.name }}-->
       <app-product-card
         [product]="p"
       />

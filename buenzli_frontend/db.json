@@ -23,14 +23,6 @@
     {
       "id": "6",
       "name": "Schals"
-    },
-    {
-      "name": "Tests",
-      "id": "qj81jyLi6EA"
-    },
-    {
-      "name": "andere Tests",
-      "id": "MMZw4coz2AM"
     }
   ],
   "products": [
@@ -38,85 +30,100 @@
       "id": "1",
       "name": "Top Quality Krawatte",
       "price": "15.3",
-      "category": "Krawatten"
+      "category": {
+        "id": "2",
+        "name": "Krawatten"
+      }
     },
     {
       "id": "2",
       "name": "Andi's Special Krawatte",
-      "price": 19.95,
-      "category": "Krawatten"
+      "price": "19.95",
+      "category": {
+        "id": "2",
+        "name": "Krawatten"
+      }
     },
     {
       "id": "3",
       "name": "Traditionelle Wollmütze",
-      "price": 23.45,
-      "category": "Kopfbedeckungen"
+      "price": "23.45",
+      "category": {
+        "id": "3",
+        "name": "Kopfbedeckungen"
+      }
     },
     {
       "id": "4",
       "name": "Alpkräuter-Sitzkissen",
       "price": 34.5,
-      "category": "Wohnen"
+      "category": {
+        "id": "1",
+        "name": "Wohnen"
+      }
     },
     {
       "id": "5",
       "name": "Gipfelstürmer Socken",
       "price": 18.9,
-      "category": "Socken"
+      "category": {
+        "id": "4",
+        "name": "Socken"
+      }
     },
     {
       "id": "6",
       "name": "Andi's Hüttentee-Mischung",
       "price": 12.5,
-      "category": "Lebensmittel"
+      "category": {
+        "id": "5",
+        "name": "Lebensmittel"
+      }
     },
     {
       "id": "7",
       "name": "Gestrickter Stirnband-Klassiker",
       "price": 21,
-      "category": "Kopfbedeckungen"
+      "category": {
+        "id": "3",
+        "name": "Kopfbedeckungen"
+      }
     },
     {
       "id": "8",
       "name": "Käsehobel mit Arvenholzgriff",
       "price": 45,
-      "category": "Wohnen"
+      "category": {
+        "id": "1",
+        "name": "Wohnen"
+      }
     },
     {
       "id": "9",
       "name": "Handgewebter Brotsack",
       "price": 16.8,
-      "category": "Wohnen"
+      "category": {
+        "id": "1",
+        "name": "Wohnen"
+      }
     },
     {
       "id": "10",
       "name": "Kuschelige Alphütten-Decke",
       "price": 89,
-      "category": "Wohnen"
+      "category": {
+        "id": "1",
+        "name": "Wohnen"
+      }
     },
     {
       "id": "11",
       "name": "Anti-Krankheits-Schal",
       "price": 49,
-      "category": "Schals"
-    },
-    {
-      "name": "Testprodukt",
-      "price": "12.3",
       "category": {
-        "name": "andere Tests",
-        "id": "MMZw4coz2AM"
-      },
-      "id": "zADnj8UIfec"
-    },
-    {
-      "name": "weiterer Test",
-      "price": "11",
-      "category": {
-        "name": "andere Tests",
-        "id": "MMZw4coz2AM"
-      },
-      "id": "eiKKmAuXiLs"
+        "id": "6",
+        "name": "Schals"
+      }
     }
   ],
   "cart": [
@@ -129,14 +136,6 @@
       "id": "kakdfCk3cK0"
     }
   ],
-  "cart-item": [
-    {
-      "product_id": "1",
-      "quantity": 2,
-      "priceAtMoment": 15.3,
-      "order_id": "vIIoAa1tHTI",
-      "id": "RVS7XXgLlzI"
-    }
-  ],
+  "cart-item": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

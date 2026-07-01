@@ -4,6 +4,7 @@ import { Product, ProductCreate } from '../../shared/product';
 import { ProductStore } from '../../shared/product-store';
 import { CategoryStore } from '../../shared/category-store';
 import { Category } from '../../shared/category';
+import { CategoryService } from '../../shared/category-service';
 
 @Component({
   selector: 'app-edit-product-popup',
@@ -19,6 +20,7 @@ export class EditProductPopup {
 
   #productStore = inject(ProductStore);
   #categoryStore = inject(CategoryStore);
+  #categoryService = inject(CategoryService);
 
   protected readonly productForm = new FormGroup({
     name: new FormControl('', {
@@ -47,27 +49,30 @@ export class EditProductPopup {
     this.product().name = formValue.name;
     this.product().price = formValue.price;
 
+    let oldCategory = this.product().category;
+
     this.#categoryStore.getAll().subscribe((categories) => {
       let c = categories.find(c => c.name === formValue.category);
       if (c) {
-        this.#updateProduct(c);
+        this.#updateProduct(c, oldCategory);
         console.info('found suitable category');
         return;
       }
       console.info('category not found')
       this.#categoryStore.create({name: formValue.category}).subscribe((c) => {
-        this.#updateProduct(c);
+        this.#updateProduct(c, oldCategory);
         console.info('updated category' + c.name);
         console.info(c);
       })
     })
   }
 
-  #updateProduct(category: Category) {
+  #updateProduct(category: Category, oldCategory: Category) {
     this.product().category = category;
 
     this.#productStore.update(this.product()).subscribe({
       next: () => {
+        this.#categoryService.checkForUsages(oldCategory.name, oldCategory.id);
         this.close.emit();
       }
     })

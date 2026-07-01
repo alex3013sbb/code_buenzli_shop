@@ -4,6 +4,8 @@ import { EditProductPopup } from './edit-product-popup/edit-product-popup';
 import { ProductStore } from '../shared/product-store';
 import { userRole } from '../shared/auth';
 import { CartService } from '../shared/cart-service';
+import { CategoryStore } from '../shared/category-store';
+import { CategoryService } from '../shared/category-service';
 
 @Component({
   selector: 'app-product-card',
@@ -18,8 +20,9 @@ export class ProductCard {
 
   readonly editActive = signal(false);
 
-  #productService = inject(ProductStore);
+  #productStore = inject(ProductStore);
   #cartService = inject(CartService);
+  #categoryService = inject(CategoryService);
 
   editProduct() {
     this.editActive.set(true);
@@ -37,7 +40,13 @@ export class ProductCard {
           `willst? Diese Aktion kann nicht rückgängig gemacht werden!`,
       )
     ) {
-      this.#productService.delete(this.product().id).subscribe();
+      let categoryName = this.product().category.name;
+      let categoryId = this.product().category.id;
+      this.#productStore.delete(this.product().id).subscribe({
+        next: () => {
+          this.#categoryService.checkForUsages(categoryName, categoryId);
+        },
+      });
     }
     window.location.reload();
   }

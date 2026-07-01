@@ -4,6 +4,7 @@ import { ProductStore } from '../../shared/product-store';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CategoryStore } from '../../shared/category-store';
 import { Category, CategoryCreate } from '../../shared/category';
+import { CategoryService } from '../../shared/category-service';
 
 @Component({
   selector: 'app-add-product-popup',
@@ -12,7 +13,6 @@ import { Category, CategoryCreate } from '../../shared/category';
   styleUrl: './add-product-popup.scss',
 })
 export class AddProductPopup {
-  // readonly createProduct = output<Product>();
   readonly close = output<void>();
 
   #productStore = inject(ProductStore);
