@@ -124,6 +124,15 @@
         "id": "6",
         "name": "Schals"
       }
+    },
+    {
+      "name": "Hausgemachter Schafskäse",
+      "price": "8.5",
+      "category": {
+        "id": "5",
+        "name": "Lebensmittel"
+      },
+      "id": "-kw_4hqZ62s"
     }
   ],
   "cart": [
@@ -136,10 +145,75 @@
       "id": "kakdfCk3cK0"
     }
   ],
-  "cart-item": [],
+  "cart-item": [
+    {
+      "product_id": "8",
+      "quantity": 5,
+      "priceAtMoment": 45,
+      "order_id": "vIIoAa1tHTI",
+      "id": "mn1Oava5EO8",
+      "product": {
+        "id": "8",
+        "name": "Käsehobel mit Arvenholzgriff",
+        "price": 45,
+        "category": {
+          "id": "1",
+          "name": "Wohnen"
+        }
+      }
+    },
+    {
+      "product_id": "11",
+      "quantity": 5,
+      "priceAtMoment": 49,
+      "order_id": "vIIoAa1tHTI",
+      "id": "lYVnEeBCABA",
+      "product": {
+        "id": "11",
+        "name": "Anti-Krankheits-Schal",
+        "price": 49,
+        "category": {
+          "id": "6",
+          "name": "Schals"
+        }
+      }
+    },
+    {
+      "product_id": "10",
+      "quantity": 100,
+      "priceAtMoment": 89,
+      "order_id": "vIIoAa1tHTI",
+      "id": "aFQwg6fQ4b0",
+      "product": {
+        "id": "10",
+        "name": "Kuschelige Alphütten-Decke",
+        "price": 89,
+        "category": {
+          "id": "1",
+          "name": "Wohnen"
+        }
+      }
+    },
+    {
+      "product_id": "7",
+      "quantity": 30,
+      "priceAtMoment": 21,
+      "order_id": "vIIoAa1tHTI",
+      "id": "IK3rxpl0i3Y",
+      "product": {
+        "id": "7",
+        "name": "Gestrickter Stirnband-Klassiker",
+        "price": 21,
+        "category": {
+          "id": "3",
+          "name": "Kopfbedeckungen"
+        }
+      }
+    }
+  ],
   "role": [
     {
-      "role": "ADMIN",
+      "role": "USER",
       "id": "1"
     }
   ],
