@@ -1,28 +1,30 @@
 <div class="products">
   @if (activeCategory() === undefined) {
-    <h1>alle Produkte</h1>
+    <h1>Alle Produkte</h1>
   } @else {
     <h1>{{ activeCategory()?.name }}</h1>
   }
-  <div class="search-line">
+  <div [class.search-line]="role()=='ADMIN'" [class.only-search]="role()=='USER'">
     <label>
       <input type="search"
              class="form-control"
              placeholder="nach Produkten suchen..."
              aria-label="nach Produkten suchen"
              title="nach Produkten suchen">
-      <!--      (input)="searchProducts()"TODO: search-->
     </label>
     @if (role() == 'ADMIN') {
       <button class="btn btn-success" (click)="showPopup()">Produkt hinzufügen</button>
     }
   </div>
   @for (p of products(); track p.id) {
-<!--    @if (activeCategory() == p.category || activeCategory() == undefined) {-->
+    @if (activeCategory()?.name == p?.category?.name || activeCategory() == undefined) {
       <app-product-card
         [product]="p"
       />
-<!--    }-->
+    }
+  }
+  @if (products().length == 0) {
+    <span style="font-style: italic">Keine Produkte gefunden</span>
   }
 </div>
 @if (popupActive()) {

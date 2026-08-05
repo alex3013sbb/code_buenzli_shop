@@ -1,8 +1,8 @@
-import { OrderedProductInfo } from "./orderedProductInfo";
+import { CartItem } from "./cartItem";
 
 export interface Order{
     id: number;
     customer_id: number;
     status_id: number;
-    orderedProducts: OrderedProductInfo[];
+    orderedProducts: CartItem[];
 }

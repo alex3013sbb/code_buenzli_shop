@@ -4,7 +4,15 @@
 }
 
 .cart-item {
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
+
+  .right-side {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
 }
 
 .cart-summary {

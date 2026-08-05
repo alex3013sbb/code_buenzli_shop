@@ -5,6 +5,7 @@ import { Category } from '../shared/category';
 import { CategoryStore } from '../shared/category-store';
 import { ProductStore } from '../shared/product-store';
 import { AddProductPopup } from './add-product-popup/add-product-popup';
+import { userRole } from '../shared/auth';
 
 @Component({
   selector: 'app-product-page',
@@ -13,12 +14,12 @@ import { AddProductPopup } from './add-product-popup/add-product-popup';
   styleUrl: './product-page.scss',
 })
 export class ProductPage {
+  readonly role = userRole;
+
   #categoryStore = inject(CategoryStore);
   #productStore = inject(ProductStore);
 
   protected readonly activeCategory = computed(() => this.#categoryStore.getActiveCategory());
-
-  protected readonly role = signal<'USER' | 'ADMIN'>('ADMIN');
 
   protected popupActive = signal(false);
 
@@ -38,6 +39,4 @@ export class ProductPage {
     this.popupActive.set(false);
     window.location.reload();
   }
-
-
 }

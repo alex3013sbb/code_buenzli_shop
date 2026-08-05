@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginForm } from './login-form/login-form';
-import { username, userRole } from '../shared/auth';
+import { AuthStore, username, userRole } from '../shared/auth';
 
 @Component({
   selector: 'app-login-page',
@@ -10,10 +10,13 @@ import { username, userRole } from '../shared/auth';
   styleUrl: './login-page.scss',
 })
 export class LoginPage {
+
+  #authStore = inject(AuthStore);
+
   constructor(private router: Router) {}
 
   setUsername(newUsername: string) {
-    username.set(newUsername);
+    this.#authStore.setUsername(newUsername);
   }
 
   setPassword(_: string) {
@@ -21,7 +24,11 @@ export class LoginPage {
   }
 
   setIsAdmin(isAdmin: boolean) {
-    userRole.set(isAdmin ? 'ADMIN' : 'USER');
+    if (isAdmin) {
+      this.#authStore.setAdmin().subscribe();
+    } else {
+      this.#authStore.setUser().subscribe();
+    }
     // navigate to main after login
     this.router.navigate(['/main']);
   }

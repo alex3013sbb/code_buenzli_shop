@@ -6,6 +6,11 @@
   gap: 10px;
 }
 
+.only-search {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .products {
   display: flex;
   flex-direction: column;

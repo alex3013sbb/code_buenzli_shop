@@ -10,7 +10,6 @@ import { CartPage } from './shop/cart-page/cart-page';
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
-
 export class App {
   protected readonly username = signal('');
   protected readonly password = signal('');
