@@ -11,17 +11,13 @@
              placeholder="nach Produkten suchen..."
              aria-label="nach Produkten suchen"
              title="nach Produkten suchen">
-      <!--      (input)="searchProducts()"TODO: search-->
     </label>
     @if (role() == 'ADMIN') {
       <button class="btn btn-success" (click)="showPopup()">Produkt hinzufügen</button>
     }
   </div>
-<!--  {{ activeCategory() }}<br/>-->
-<!--  {{ activeCategory()?.name }}-->
   @for (p of products(); track p.id) {
     @if (activeCategory()?.name == p?.category?.name || activeCategory() == undefined) {
-<!--      {{ p?.category?.name }}-->
       <app-product-card
         [product]="p"
       />
